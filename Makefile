@@ -7,8 +7,8 @@ CGO_ENABLED=1
 GO=go
 
 # 기본 타겟 (현재 시스템에 맞는 빌드)
-.PHONY: build
-build:
+.PHONY: build-current
+build-current:
 	CGO_ENABLED=$(CGO_ENABLED) $(GO) build -o $(BUILD_DIR)/$(BINARY_NAME)
 
 # Mac M1/M2/M3 (arm64)
@@ -46,9 +46,10 @@ info:
 .PHONY: help
 help:
 	@echo "사용 가능한 명령어:"
-	@echo "  make build          - 현재 시스템에 맞는 버전 빌드"
-	@echo "  make build-mac-arm  - Mac M1/M2/M3용 빌드"
-	@echo "  make build-mac-intel - Mac Intel용 빌드"
-	@echo "  make build-windows  - Windows용 빌드"
-	@echo "  make clean         - 빌드 파일 정리"
-	@echo "  make info          - 현재 시스템 정보 출력"
+	@echo "  make build-current		- 현재 시스템에 맞는 버전 빌드"
+	@echo "  make build-mac-arm  	- Mac M1/M2/M3용 빌드"
+	@echo "  make build-mac-intel 	- Mac Intel용 빌드"
+	@echo "  make build-windows  	- Windows용 빌드"
+	@echo "  make clean         	- 빌드 파일 정리"
+	@echo "  make build         	- 빌드 파일 생성"
+	@echo "  make info          	- 현재 시스템 정보 출력"
